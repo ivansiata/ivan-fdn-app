@@ -18,7 +18,7 @@ const Navigation = () => {
       <div className="flex-item flex center">
         <div className="search-box">
           <div>
-            <img src="assets/images/FDNWebImage_11.png" />
+            <img className="clickable" src="assets/images/FDNWebImage_11.png" />
           </div>
           <span>Search products, articles, topics, brands, etc</span>
         </div>

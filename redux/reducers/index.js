@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import dataReducer from "./dataReducer";
+import editorChoiceReducer from "./editorChoiceReducer";
+import latestArticleReducer from "./latestArticleReducer";
+import latestReviewReducer from "./latestReviewReducer";
 
 const reducers = combineReducers({
-  dataStore: dataReducer,
+  editorChoiceStore: editorChoiceReducer,
+  latestArticleStore: latestArticleReducer,
+  latestReviewStore: latestReviewReducer,
 });
 
 export default reducers;

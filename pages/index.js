@@ -14,7 +14,11 @@ import Navigation from "../components/Navigation";
 import PopularGroupCard from "../components/PopularGroupCard";
 import SectionTitle from "../components/SectionTitle";
 import SubNavigation from "../components/SubNavigation";
-import { setData } from "../redux/actions/dataActions";
+import {
+  setEditorChoiceData,
+  setlatestArticleData,
+  setlatestReviewData,
+} from "../redux/actions/dataActions";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -25,14 +29,18 @@ export default function Home() {
       .catch((e) => {
         console.log("Error", e);
       });
-    dispatch(setData(response.data));
+    dispatch(setEditorChoiceData(response.data["editor's choice"]));
+    dispatch(setlatestArticleData(response.data["latest articles"]));
+    dispatch(setlatestReviewData(response.data["latest review"]));
   };
 
   useEffect(() => {
     fetchDatas();
   }, []);
 
-  const datas = useSelector((state) => state.dataStore);
+  const editorChoiceStore = useSelector((state) => state.editorChoiceStore);
+  const latestArticleStore = useSelector((state) => state.latestArticleStore);
+  const latestReviewStore = useSelector((state) => state.latestReviewStore);
 
   return (
     <div>
@@ -52,7 +60,7 @@ export default function Home() {
               subtitle="Curated with love"
             />
             <div className="editor-choice inside-row">
-              {datas["editor's choice"].map((data, index) => (
+              {editorChoiceStore.data.map((data, index) => (
                 <Card
                   key={index}
                   editor={data.editor}
@@ -77,7 +85,7 @@ export default function Home() {
               subtitle="So you can make better purchase decision"
             />
             <div className="grid latest-article inside-row">
-              {datas["latest articles"].map((data, index) => (
+              {latestArticleStore.data.map((data, index) => (
                 <LatestArticleCard
                   key={index}
                   title={data.title}
@@ -93,7 +101,7 @@ export default function Home() {
               title="Latest Review"
               subtitle="So you can make better purchase decision"
             />
-            <LatestReview datas={datas} />
+            <LatestReview datas={latestReviewStore} />
           </div>
           <div className="row">
             <SectionTitle
