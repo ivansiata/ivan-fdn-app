@@ -1,9 +1,16 @@
 import React from "react";
 import CardRating from "./CardRating";
 
-const LatestReviewCard = ({ user, profile, product, star, comment }) => {
+const LatestReviewCard = ({
+  user,
+  profile,
+  product,
+  star,
+  comment,
+  testId,
+}) => {
   return (
-    <div className="card">
+    <div data-testid={testId} className="card">
       <div className="main">
         <div className="header">
           <div className="image-container">

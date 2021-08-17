@@ -1,9 +1,9 @@
 import React from "react";
 import DefaultCard from "./DefaultCard";
 
-const Card = ({ editor, role, product }) => {
+const EditorChoiceCard = ({ editor, role, product, testId }) => {
   return (
-    <div className="flex-item card">
+    <div data-testid={testId} className="flex-item card">
       <div className="editor">
         <div className="image-container">
           <img src={`assets/images/FDNWebImage_21.png`} />
@@ -20,4 +20,4 @@ const Card = ({ editor, role, product }) => {
   );
 };
 
-export default Card;
+export default EditorChoiceCard;

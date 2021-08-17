@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdBanner from "../components/AdBanner";
-import Card from "../components/Card";
+import EditorChoiceCard from "../components/EditorChoiceCard";
 import DefaultCard from "../components/DefaultCard";
 import Footer from "../components/Footer";
 import LatestArticleCard from "../components/LatestArticleCard";
@@ -63,11 +63,12 @@ export default function Home() {
             />
             <div className="editor-choice inside-row">
               {editorChoiceStore.data.map((data, index) => (
-                <Card
+                <EditorChoiceCard
                   key={index}
                   editor={data.editor}
                   role={data.role}
                   product={data.product}
+                  testId={`editor-choice-${index + 1}`}
                 />
               ))}
             </div>
@@ -94,6 +95,7 @@ export default function Home() {
                   author={data.author}
                   image={data.image}
                   publishedAt={data.published_at}
+                  testId={`latest-article-${index + 1}`}
                 />
               ))}
             </div>
