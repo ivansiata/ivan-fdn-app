@@ -23,7 +23,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the populated web page result.
 Open [http://localhost:3000/static-page.html](http://localhost:3000/static-page.html) with your browser to see the static web page build after image slicing result.
 
-This application also includes simple test that can be run with:
+This application also includes some simple unit test that can be run with:
 
 ```bash
 npm run test
