@@ -24,14 +24,16 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const fetchDatas = async () => {
-    const response = await axios
+    await axios
       .get("https://virtserver.swaggerhub.com/hqms/FDN-WP/0.1/wp")
+      .then((response) => {
+        dispatch(setEditorChoiceData(response.data["editor's choice"]));
+        dispatch(setlatestArticleData(response.data["latest articles"]));
+        dispatch(setlatestReviewData(response.data["latest review"]));
+      })
       .catch((e) => {
         console.log("Error", e);
       });
-    dispatch(setEditorChoiceData(response.data["editor's choice"]));
-    dispatch(setlatestArticleData(response.data["latest articles"]));
-    dispatch(setlatestReviewData(response.data["latest review"]));
   };
 
   useEffect(() => {

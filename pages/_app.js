@@ -1,6 +1,5 @@
-import { Provider } from "react-redux";
 import "../public/assets/css/style.css";
-import store, { wrapper } from "../redux/store";
+import { wrapper } from "../redux/store";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
